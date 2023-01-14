@@ -9,3 +9,19 @@ before_install:
 script:
   - docker run -e CI=true finc1984/docker-react npm run test
 
+deploy:
+  provider: eleasticbeanstalk
+  region: "eu-central-1"
+  app: "finc-docker-react"
+  env: "Fincdockerreact-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-429274824342"
+  bucket_path: "finc-docker-react"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
+
+
+  
+
+
